@@ -1,0 +1,222 @@
+
+    public Integer getRn() {
+        return rn;
+    }
+
+    public void setRn(Integer rn) {
+        this.rn = rn;
+    }
+
+    public Long getUserOwnerId() {
+        return userOwnerId;
+    }
+
+    public void setUserOwnerId(Long userOwnerId) {
+        this.userOwnerId = userOwnerId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public Long getMajorId() {
+        return majorId;
+    }
+
+    public void setMajorId(Long majorId) {
+        this.majorId = majorId;
+    }
+
+    public Long getGradeId() {
+        return gradeId;
+    }
+
+    public void setGradeId(Long gradeId) {
+        this.gradeId = gradeId;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Long getUserTypeId() {
+        return userTypeId;
+    }
+
+    public void setUserTypeId(Long userTypeId) {
+        this.userTypeId = userTypeId;
+    }
+
+    public Long getCustomerTypeId() {
+        return customerTypeId;
+    }
+
+    public void setCustomerTypeId(Long customerTypeId) {
+        this.customerTypeId = customerTypeId;
+    }
+
+    public String getPlanDetailInfo() {
+        return planDetailInfo;
+    }
+
+    public void setPlanDetailInfo(String planDetailInfo) {
+        this.planDetailInfo = planDetailInfo;
+    }
+
+    public Long getProvinceId() {
+        return provinceId;
+    }
+
+    public void setProvinceId(Long provinceId) {
+        this.provinceId = provinceId;
+    }
+
+    public Long getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(Long cityId) {
+        this.cityId = cityId;
+    }
+
+    public Integer getContractCount() {
+        return contractCount;
+    }
+
+    public void setContractCount(Integer contractCount) {
+        this.contractCount = contractCount;
+    }
+
+    public String getAssignHistoryInfo() {
+        return assignHistoryInfo;
+    }
+
+    public void setAssignHistoryInfo(String assignHistoryInfo) {
+        this.assignHistoryInfo = assignHistoryInfo;
+    }
+
+    public Date getLastFollowUpDatetime() {
+        return lastFollowUpDatetime;
+    }
+
+    public void setLastFollowUpDatetime(Date lastFollowUpDatetime) {
+        this.lastFollowUpDatetime = lastFollowUpDatetime;
+    }
+
+    public String getLastFollowUpSupervisorName() {
+        return lastFollowUpSupervisorName;
+    }
+
+    public void setLastFollowUpSupervisorName(String lastFollowUpSupervisorName) {
+        this.lastFollowUpSupervisorName = lastFollowUpSupervisorName;
+    }
+
+    public Long getLastFollowUpPrimaryProductTypeId() {
+        return lastFollowUpPrimaryProductTypeId;
+    }
+
+    public void setLastFollowUpPrimaryProductTypeId(Long lastFollowUpPrimaryProductTypeId) {
+        this.lastFollowUpPrimaryProductTypeId = lastFollowUpPrimaryProductTypeId;
+    }
+
+    public String getLastFollowUpLastLabel() {
+        return lastFollowUpLastLabel;
+    }
+
+    public void setLastFollowUpLastLabel(String lastFollowUpLastLabel) {
+        this.lastFollowUpLastLabel = lastFollowUpLastLabel;
+    }
+
+    public String getLastFollowUpPrevLabel() {
+        return lastFollowUpPrevLabel;
+    }
+
+    public void setLastFollowUpPrevLabel(String lastFollowUpPrevLabel) {
+        this.lastFollowUpPrevLabel = lastFollowUpPrevLabel;
+    }
+
+    public String getMarketingStatusIds() {
+        return marketingStatusIds;
+    }
+
+    public void setMarketingStatusIds(String marketingStatusIds) {
+        this.marketingStatusIds = marketingStatusIds;
+    }
+
+    public Date getCreatedAtDatetime() {
+        return createdAtDatetime;
+    }
+
+    public void setCreatedAtDatetime(Date createdAtDatetime) {
+        this.createdAtDatetime = createdAtDatetime;
+    }
+
+    public Long getLandingPageId() {
+        return landingPageId;
+    }
+
+    public void setLandingPageId(Long landingPageId) {
+        this.landingPageId = landingPageId;
+    }
+
+    public Long getUtmId() {
+        return utmId;
+    }
+
+    public void setUtmId(Long utmId) {
+        this.utmId = utmId;
+    }
+
+    public String getLandingPageList() {
+        return landingPageList;
+    }
+
+    public void setLandingPageList(String landingPageList) {
+        this.landingPageList = landingPageList;
+    }
+
+    public String getUtmList() {
+        return utmList;
+    }
+
+    public void setUtmList(String utmList) {
+        this.utmList = utmList;
+    }
+
+    public Integer getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(Integer totalCount) {

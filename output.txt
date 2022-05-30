@@ -1,145 +1,66 @@
 
-    ---------proxy interface:
+    --------- queryString:
     
-    public Integer getRn();
-    
-    public void setRn(Integer rn);
-    
-    public Long getUserOwnerId();
-    
-    public void setUserOwnerId(Long userOwnerId);
-    
-    public Long getUserId();
-    
-    public void setUserId(Long userId);
-    
-    public String getName();
-    
-    public void setName(String name);
-    
-    public String getMobile();
-    
-    public void setMobile(String mobile);
-    
-    public Long getMajorId();
-    
-    public void setMajorId(Long majorId);
-    
-    public Long getGradeId();
-    
-    public void setGradeId(Long gradeId);
-    
-    public Long getCustomerId();
-    
-    public void setCustomerId(Long customerId);
-    
-    public String getUsername();
-    
-    public void setUsername(String username);
-    
-    public Long getUserTypeId();
-    
-    public void setUserTypeId(Long userTypeId);
-    
-    public Long getCustomerTypeId();
-    
-    public void setCustomerTypeId(Long customerTypeId);
-    
-    public String getPlanDetailInfo();
-    
-    public void setPlanDetailInfo(String planDetailInfo);
-    
-    public Long getProvinceId();
-    
-    public void setProvinceId(Long provinceId);
-    
-    public Long getCityId();
-    
-    public void setCityId(Long cityId);
-    
-    public Integer getContractCount();
-    
-    public void setContractCount(Integer contractCount);
-    
-    public String getAssignHistoryInfo();
-    
-    public void setAssignHistoryInfo(String assignHistoryInfo);
-    
-    public Date getLastFollowUpDatetime();
-    
-    public void setLastFollowUpDatetime(Date lastFollowUpDatetime);
-    
-    public String getLastFollowUpSupervisorName();
-    
-    public void setLastFollowUpSupervisorName(String lastFollowUpSupervisorName);
-    
-    public Long getLastFollowUpPrimaryProductTypeId();
-    
-    public void setLastFollowUpPrimaryProductTypeId(Long lastFollowUpPrimaryProductTypeId);
-    
-    public String getLastFollowUpLastLabel();
-    
-    public void setLastFollowUpLastLabel(String lastFollowUpLastLabel);
-    
-    public String getLastFollowUpPrevLabel();
-    
-    public void setLastFollowUpPrevLabel(String lastFollowUpPrevLabel);
-    
-    public String getMarketingStatusIds();
-    
-    public void setMarketingStatusIds(String marketingStatusIds);
-    
-    public Date getCreatedAtDatetime();
-    
-    public void setCreatedAtDatetime(Date createdAtDatetime);
-    
-    public Long getLandingPageId();
-    
-    public void setLandingPageId(Long landingPageId);
-    
-    public Long getUtmId();
-    
-    public void setUtmId(Long utmId);
-    
-    public String getLandingPageList();
-    
-    public void setLandingPageList(String landingPageList);
-    
-    public String getUtmList();
-    
-    public void setUtmList(String utmList);
-    
-    public Integer getTotalCount();
-    
-    public void setTotalCount(Integer totalCount);
-    
-    ---------addScalar:
-    
-    .addScalar("rn", IntegerType.INSTANCE)
-    .addScalar("userOwnerId", LongType.INSTANCE)
-    .addScalar("userId", LongType.INSTANCE)
-    .addScalar("name", StringType.INSTANCE)
-    .addScalar("mobile", StringType.INSTANCE)
-    .addScalar("majorId", LongType.INSTANCE)
-    .addScalar("gradeId", LongType.INSTANCE)
-    .addScalar("customerId", LongType.INSTANCE)
-    .addScalar("username", StringType.INSTANCE)
-    .addScalar("userTypeId", LongType.INSTANCE)
-    .addScalar("customerTypeId", LongType.INSTANCE)
-    .addScalar("planDetailInfo", StringType.INSTANCE)
-    .addScalar("provinceId", LongType.INSTANCE)
-    .addScalar("cityId", LongType.INSTANCE)
-    .addScalar("contractCount", IntegerType.INSTANCE)
-    .addScalar("assignHistoryInfo", StringType.INSTANCE)
-    .addScalar("lastFollowUpDatetime")
-    .addScalar("lastFollowUpSupervisorName", StringType.INSTANCE)
-    .addScalar("lastFollowUpPrimaryProductTypeId", LongType.INSTANCE)
-    .addScalar("lastFollowUpLastLabel", StringType.INSTANCE)
-    .addScalar("lastFollowUpPrevLabel", StringType.INSTANCE)
-    .addScalar("marketingStatusIds", StringType.INSTANCE)
-    .addScalar("createdAtDatetime")
-    .addScalar("landingPageId", LongType.INSTANCE)
-    .addScalar("utmId", LongType.INSTANCE)
-    .addScalar("landingPageList", StringType.INSTANCE)
-    .addScalar("utmList", StringType.INSTANCE)
-    .addScalar("totalCount", IntegerType.INSTANCE)
+    public SomeOutput methodName(, boolean isLead, Date fromCreatedAtDatetime, Date toCreatedAtDatetime, String userTypeIds, Long provinceId, Long cityId, Long uTMId, String gradeIds, String customerTypeIds, String schoolName, String schoolMobile, String schoolUsername, boolean isAssigned, Double landingPageId, Long supervisorId, String productMarketingStatusList, Date fromAssignedDatetime, Date toAssignedDatetime, Long offset, Long length, Long userId) {
+    ***********************
+    StringBuilder sb = new StringBuilder();
+sb.append("exec " + ProcedureNames.SOME_SP_NAME);
+sb.append("@IsLead = :isLead,");
+sb.append(fromCreatedAtDatetime == null ? "" : "@FromCreatedAtDatetime = :fromCreatedAtDatetime",);
+sb.append(toCreatedAtDatetime == null ? "" : "@ToCreatedAtDatetime = :toCreatedAtDatetime",);
+sb.append(userTypeIds == null ? "" : "@UserTypeIDs = :userTypeIds",);
+sb.append(provinceId == null ? "" : "@ProvinceID = :provinceId",);
+sb.append(cityId == null ? "" : "@CityID = :cityId",);
+sb.append(uTMId == null ? "" : "@UTMID = :uTMId",);
+sb.append(gradeIds == null ? "" : "@GradeIDs = :gradeIds",);
+sb.append(customerTypeIds == null ? "" : "@CustomerTypeIDs = :customerTypeIds",);
+sb.append(schoolName == null ? "" : "@SchoolName = :schoolName",);
+sb.append(schoolMobile == null ? "" : "@SchoolMobile = :schoolMobile",);
+sb.append(schoolUsername == null ? "" : "@SchoolUsername = :schoolUsername",);
+sb.append(isAssigned == null ? "" : "@IsAssigned = :isAssigned",);
+sb.append(landingPageId == null ? "" : "@LandingPageID = :landingPageId",);
+sb.append(supervisorId == null ? "" : "@SupervisorID = :supervisorId",);
+sb.append(productMarketingStatusList == null ? "" : "@ProductMarketingStatusList = :productMarketingStatusList",);
+sb.append(fromAssignedDatetime == null ? "" : "@FromAssignedDatetime = :fromAssignedDatetime",);
+sb.append(toAssignedDatetime == null ? "" : "@ToAssignedDatetime = :toAssignedDatetime",);
+sb.append("@Offset = :offset,");
+sb.append("@Length = :length,");
+sb.append("@UserID = :userId,");
+    ***********************
+    Query query = getSession().createNativeQuery(sb.toString())
+.setParameter("fromCreatedAtDatetime", fromCreatedAtDatetime)
+.setParameter("toCreatedAtDatetime", toCreatedAtDatetime)
+.setParameter("userTypeIds", userTypeIds)
+.setParameter("provinceId", provinceId)
+.setParameter("cityId", cityId)
+.setParameter("uTMId", uTMId)
+.setParameter("gradeIds", gradeIds)
+.setParameter("customerTypeIds", customerTypeIds)
+.setParameter("schoolName", schoolName)
+.setParameter("schoolMobile", schoolMobile)
+.setParameter("schoolUsername", schoolUsername)
+.setParameter("isAssigned", isAssigned)
+.setParameter("landingPageId", landingPageId)
+.setParameter("supervisorId", supervisorId)
+.setParameter("productMarketingStatusList", productMarketingStatusList)
+.setParameter("fromAssignedDatetime", fromAssignedDatetime)
+.setParameter("toAssignedDatetime", toAssignedDatetime)
+.setResultTransformer(Transformers.aliasToBean(SomeOutput.class));
+    ***********************
+    if (fromCreatedAtDatetime != null) {query.setParameter("fromCreatedAtDatetime", fromCreatedAtDatetime);}
+if (toCreatedAtDatetime != null) {query.setParameter("toCreatedAtDatetime", toCreatedAtDatetime);}
+if (userTypeIds != null) {query.setParameter("userTypeIds", userTypeIds);}
+if (provinceId != null) {query.setParameter("provinceId", provinceId);}
+if (cityId != null) {query.setParameter("cityId", cityId);}
+if (uTMId != null) {query.setParameter("uTMId", uTMId);}
+if (gradeIds != null) {query.setParameter("gradeIds", gradeIds);}
+if (customerTypeIds != null) {query.setParameter("customerTypeIds", customerTypeIds);}
+if (schoolName != null) {query.setParameter("schoolName", schoolName);}
+if (schoolMobile != null) {query.setParameter("schoolMobile", schoolMobile);}
+if (schoolUsername != null) {query.setParameter("schoolUsername", schoolUsername);}
+if (isAssigned != null) {query.setParameter("isAssigned", isAssigned);}
+if (landingPageId != null) {query.setParameter("landingPageId", landingPageId);}
+if (supervisorId != null) {query.setParameter("supervisorId", supervisorId);}
+if (productMarketingStatusList != null) {query.setParameter("productMarketingStatusList", productMarketingStatusList);}
+if (fromAssignedDatetime != null) {query.setParameter("fromAssignedDatetime", fromAssignedDatetime);}
+if (toAssignedDatetime != null) {query.setParameter("toAssignedDatetime", toAssignedDatetime);}

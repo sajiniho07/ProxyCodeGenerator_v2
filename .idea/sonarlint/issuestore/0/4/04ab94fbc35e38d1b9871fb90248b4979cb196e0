@@ -4,14 +4,14 @@ java:S2095"HUse try-with-resources or close this "FileReader" in a "finally" c
 S	java:S106"9Replace this use of System.out or System.err by a logger.(çðŠ½ùÿÿÿÿ
 <
 java:S1481""&Remove this unused "i" local variable.(»ŸÜš
+K
+java:S1143"5Remove this return statement from this finally block.(› Î¦
 g
 java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(¾î¹–ûÿÿÿÿ
-c
-java:S2095 "HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Õ½ÈÄýÿÿÿÿ
 P
 java:S1118
 ":Add a private constructor to hide the implicit public one.(€”×ª
 E
 java:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ
-K
-java:S1143"5Remove this return statement from this finally block.(› Î¦
+c
+java:S2095 "HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Õ½ÈÄýÿÿÿÿ

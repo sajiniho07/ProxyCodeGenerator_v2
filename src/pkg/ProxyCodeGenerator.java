@@ -6,18 +6,80 @@ public class ProxyCodeGenerator {
 	public static void main(String[] args) {
 		List<String> outputLines = new ArrayList<>();
 		List<String> lines = IOCodeGen.input("input.txt");
-		createApiBody(outputLines, lines);
 //		populateProxyInterface(outputLines, lines);
+		generateDaoImplMethod(outputLines, lines);
 //		populateAddScalar(outputLines, lines);
+//		generateRestAPIMethod(outputLines, lines);
 		IOCodeGen.output(outputLines, "output.txt");
 	}
 
 	/**
 	 * Input Sample:
-	 * ALTER PROCEDURE Marketing.PipeLineOpenDeals_SelectALL
-	 * @UserID BIGINT = 2303307
+	 * public DataBaseGeneralResult disableCustomerContact(Long customerId, Long customerContactId)
 	 * */
-	private static void createApiBody(List<String> outputLines, List<String> lines) {
+	private static void generateRestAPIMethod(List<String> outputLines, List<String> lines) {
+		outputLines.add("--------- Rest API:");
+		outputLines.add("\n");
+
+		String combinedString = String.join(System.lineSeparator(), lines);
+
+		String[] split = getMethodReturnTypeAndName(combinedString).split(" ");
+		String returnType = split[0];
+		String methodName = split[1];
+
+		String parameters = combinedString.substring(combinedString.indexOf("(") + 1, combinedString.indexOf(")"));
+
+		List<String> parameterTypes = new ArrayList<>();
+		List<String> parameterNames = new ArrayList<>();
+
+		for (String param : parameters.split(",")) {
+			String[] parts = param.trim().split(" ");
+			parameterTypes.add(parts[0]);
+			parameterNames.add(parts[1]);
+		}
+
+		StringBuilder output = new StringBuilder();
+		output.append("@POST\n");
+		output.append("@Path(\"").append(methodName).append("\")\n");
+		output.append("@Produces(MediaType.APPLICATION_JSON)\n");
+		output.append("@Consumes(MediaType.APPLICATION_FORM_URLENCODED)\n");
+		output.append("public ").append(returnType).append(" ").append(methodName).append("(");
+
+		for (int i = 0; i < parameterTypes.size(); i++) {
+			output.append("@FormParam(\"").append(parameterNames.get(i)).append("\") ").append(parameterTypes.get(i))
+					.append(" ").append(parameterNames.get(i));
+			if (i < parameterTypes.size() - 1) {
+				output.append(", ");
+			}
+		}
+
+		output.append(") {\n");
+		output.append("\treturn marketingServiceProvider.get().").append(methodName).append("(");
+		for (int i = 0; i < parameterNames.size(); i++) {
+			output.append(parameterNames.get(i));
+			if (i < parameterNames.size() - 1) {
+				output.append(", ");
+			}
+		}
+		output.append(");\n");
+		output.append("}");
+
+		outputLines.add(output.toString());
+	}
+
+	public static String getMethodReturnTypeAndName(String methodString) {
+		int startIndex = methodString.indexOf(" ") + 1;
+		int endIndex = methodString.indexOf("(");
+		return methodString.substring(startIndex, endIndex);
+	}
+
+	/**
+	 * Input Sample:
+	 * ALTER PROCEDURE Marketing.PipeLineOpenDeals_SelectALL
+	 * @UserID BIGINT 	,
+	 * @pipelineID BIGINT = NULL
+	 * */
+	private static void generateDaoImplMethod(List<String> outputLines, List<String> lines) {
 		outputLines.add("--------- queryString:");
 		outputLines.add("\n");
 		String methodName = "public SomeOutput methodName(";
@@ -63,9 +125,10 @@ public class ProxyCodeGenerator {
 		}
 		String paramName = words[0].substring(1);
 		String javaValidParamName = getJavaValidParamName(paramName);
-		if (Arrays.asList(words).contains("NULL") || Arrays.asList(words).contains("null")) {
+		List<String> wordsList = Arrays.asList(words);
+		if (!wordsList.contains("NULL") && !wordsList.contains("null")) {
+			querySetParam += ".setParameter(\"" + javaValidParamName + "\", " + javaValidParamName + ")\n";
 		}
-		querySetParam += ".setParameter(\"" + javaValidParamName + "\", " + javaValidParamName + ")\n";
 		return querySetParam;
 	}
 

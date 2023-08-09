@@ -7,11 +7,16 @@ public class ProxyCodeGenerator {
 		List<String> outputLines = new ArrayList<>();
 		List<String> lines = IOCodeGen.input("input.txt");
 		createApiBody(outputLines, lines);
-	//	populateProxyInterface(outputLines, lines);
-	//	populateAddScalar(outputLines, lines);
+//		populateProxyInterface(outputLines, lines);
+//		populateAddScalar(outputLines, lines);
 		IOCodeGen.output(outputLines, "output.txt");
 	}
 
+	/**
+	 * Input Sample:
+	 * ALTER PROCEDURE Marketing.PipeLineOpenDeals_SelectALL
+	 * @UserID BIGINT = 2303307
+	 * */
 	private static void createApiBody(List<String> outputLines, List<String> lines) {
 		outputLines.add("--------- queryString:");
 		outputLines.add("\n");
@@ -59,8 +64,8 @@ public class ProxyCodeGenerator {
 		String paramName = words[0].substring(1);
 		String javaValidParamName = getJavaValidParamName(paramName);
 		if (Arrays.asList(words).contains("NULL") || Arrays.asList(words).contains("null")) {
-			querySetParam += ".setParameter(\"" + javaValidParamName + "\", " + javaValidParamName + ")\n";
 		}
+		querySetParam += ".setParameter(\"" + javaValidParamName + "\", " + javaValidParamName + ")\n";
 		return querySetParam;
 	}
 
@@ -71,9 +76,9 @@ public class ProxyCodeGenerator {
 		String paramName = words[0].substring(1);
 		String javaValidParamName = getJavaValidParamName(paramName);
 		if (Arrays.asList(words).contains("NULL") || Arrays.asList(words).contains("null")) {
-			queryString += "sb.append(" + javaValidParamName + " == null ? \"\" : \"@" + paramName + " = :" + javaValidParamName + ", \");\n";
+			queryString += "sb.append(" + javaValidParamName + " == null ? \"\" : \" @" + paramName + " = :" + javaValidParamName + ", \");\n";
 		} else {
-			queryString += "sb.append(\"@" + paramName + " = :" + javaValidParamName + ",\");\n";
+			queryString += "sb.append(\" @" + paramName + " = :" + javaValidParamName + ",\");\n";
 		}
 		return queryString;
 	}
@@ -120,6 +125,15 @@ public class ProxyCodeGenerator {
 		}
 	}
 
+	/**
+	 * Input sample_1:
+	 * public void setUserName(String userName);
+	 *
+	 * Input sample_2:
+		public void setUserName(String userName) {
+			this.userName = userName;
+		}
+	 * */
 	private static void populateAddScalar(List<String> outputLines, List<String> lines) {
 		outputLines.add("---------addScalar:");
 		outputLines.add("\n");

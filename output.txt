@@ -1,66 +1,48 @@
 
     --------- queryString:
     
-    public SomeOutput methodName(, boolean isLead, Date fromCreatedAtDatetime, Date toCreatedAtDatetime, String userTypeIds, Long provinceId, Long cityId, Long uTMId, String gradeIds, String customerTypeIds, String schoolName, String schoolMobile, String schoolUsername, boolean isAssigned, Double landingPageId, Long supervisorId, String productMarketingStatusList, Date fromAssignedDatetime, Date toAssignedDatetime, Long offset, Long length, Long userId) {
+    public SomeOutput methodName(, Long userId, Long pipelineId, Long nextActionTypeId, Date nextActionDateTime, String report, Long pipelineResourceTypeId, Long dealTypeId, Long labelId, String lostReasonIdList, String productIdList, Long customerContactPointId, String meetingParticipantIdList, Long meetingStatusId, Long meetingQualificationId, String meetingDisqualifiedReasonIdList, Long studentNoId, Long contractValueEstimationId, Long successRateId) {
     ***********************
     StringBuilder sb = new StringBuilder();
 sb.append("exec " + ProcedureNames.SOME_SP_NAME);
-sb.append("@IsLead = :isLead,");
-sb.append(fromCreatedAtDatetime == null ? "" : "@FromCreatedAtDatetime = :fromCreatedAtDatetime",);
-sb.append(toCreatedAtDatetime == null ? "" : "@ToCreatedAtDatetime = :toCreatedAtDatetime",);
-sb.append(userTypeIds == null ? "" : "@UserTypeIDs = :userTypeIds",);
-sb.append(provinceId == null ? "" : "@ProvinceID = :provinceId",);
-sb.append(cityId == null ? "" : "@CityID = :cityId",);
-sb.append(uTMId == null ? "" : "@UTMID = :uTMId",);
-sb.append(gradeIds == null ? "" : "@GradeIDs = :gradeIds",);
-sb.append(customerTypeIds == null ? "" : "@CustomerTypeIDs = :customerTypeIds",);
-sb.append(schoolName == null ? "" : "@SchoolName = :schoolName",);
-sb.append(schoolMobile == null ? "" : "@SchoolMobile = :schoolMobile",);
-sb.append(schoolUsername == null ? "" : "@SchoolUsername = :schoolUsername",);
-sb.append(isAssigned == null ? "" : "@IsAssigned = :isAssigned",);
-sb.append(landingPageId == null ? "" : "@LandingPageID = :landingPageId",);
-sb.append(supervisorId == null ? "" : "@SupervisorID = :supervisorId",);
-sb.append(productMarketingStatusList == null ? "" : "@ProductMarketingStatusList = :productMarketingStatusList",);
-sb.append(fromAssignedDatetime == null ? "" : "@FromAssignedDatetime = :fromAssignedDatetime",);
-sb.append(toAssignedDatetime == null ? "" : "@ToAssignedDatetime = :toAssignedDatetime",);
-sb.append("@Offset = :offset,");
-sb.append("@Length = :length,");
-sb.append("@UserID = :userId,");
+sb.append(" @UserID = :userId,");
+sb.append(" @pipelineID = :pipelineId,");
+sb.append(" @NextActionTypeId = :nextActionTypeId,");
+sb.append(" @NextActionDateTime = :nextActionDateTime,");
+sb.append(" @Report = :report,");
+sb.append(" @PipelineResourceTypeID = :pipelineResourceTypeId,");
+sb.append(" @DealTypeID = :dealTypeId,");
+sb.append(" @LabelID = :labelId,");
+sb.append(" @LostReasonIDList = :lostReasonIdList,");
+sb.append(" @productIDList = :productIdList,");
+sb.append(" @CustomerContactPointID = :customerContactPointId,");
+sb.append(" @meetingParticipantIdList = :meetingParticipantIdList,");
+sb.append(" @MeetingStatusID = :meetingStatusId,");
+sb.append(" @meetingQualificationID = :meetingQualificationId,");
+sb.append(" @MeetingDisqualifiedReasonIdList = :meetingDisqualifiedReasonIdList,");
+sb.append(" @StudentNoID = :studentNoId,");
+sb.append(" @ContractValueEstimationID = :contractValueEstimationId,");
+sb.append(" @SuccessRateID = :successRateId,");
     ***********************
     Query query = getSession().createNativeQuery(sb.toString())
-.setParameter("fromCreatedAtDatetime", fromCreatedAtDatetime)
-.setParameter("toCreatedAtDatetime", toCreatedAtDatetime)
-.setParameter("userTypeIds", userTypeIds)
-.setParameter("provinceId", provinceId)
-.setParameter("cityId", cityId)
-.setParameter("uTMId", uTMId)
-.setParameter("gradeIds", gradeIds)
-.setParameter("customerTypeIds", customerTypeIds)
-.setParameter("schoolName", schoolName)
-.setParameter("schoolMobile", schoolMobile)
-.setParameter("schoolUsername", schoolUsername)
-.setParameter("isAssigned", isAssigned)
-.setParameter("landingPageId", landingPageId)
-.setParameter("supervisorId", supervisorId)
-.setParameter("productMarketingStatusList", productMarketingStatusList)
-.setParameter("fromAssignedDatetime", fromAssignedDatetime)
-.setParameter("toAssignedDatetime", toAssignedDatetime)
+.setParameter("userId", userId)
+.setParameter("pipelineId", pipelineId)
+.setParameter("nextActionTypeId", nextActionTypeId)
+.setParameter("nextActionDateTime", nextActionDateTime)
+.setParameter("report", report)
+.setParameter("pipelineResourceTypeId", pipelineResourceTypeId)
+.setParameter("dealTypeId", dealTypeId)
+.setParameter("labelId", labelId)
+.setParameter("lostReasonIdList", lostReasonIdList)
+.setParameter("productIdList", productIdList)
+.setParameter("customerContactPointId", customerContactPointId)
+.setParameter("meetingParticipantIdList", meetingParticipantIdList)
+.setParameter("meetingStatusId", meetingStatusId)
+.setParameter("meetingQualificationId", meetingQualificationId)
+.setParameter("meetingDisqualifiedReasonIdList", meetingDisqualifiedReasonIdList)
+.setParameter("studentNoId", studentNoId)
+.setParameter("contractValueEstimationId", contractValueEstimationId)
+.setParameter("successRateId", successRateId)
 .setResultTransformer(Transformers.aliasToBean(SomeOutput.class));
     ***********************
-    if (fromCreatedAtDatetime != null) {query.setParameter("fromCreatedAtDatetime", fromCreatedAtDatetime);}
-if (toCreatedAtDatetime != null) {query.setParameter("toCreatedAtDatetime", toCreatedAtDatetime);}
-if (userTypeIds != null) {query.setParameter("userTypeIds", userTypeIds);}
-if (provinceId != null) {query.setParameter("provinceId", provinceId);}
-if (cityId != null) {query.setParameter("cityId", cityId);}
-if (uTMId != null) {query.setParameter("uTMId", uTMId);}
-if (gradeIds != null) {query.setParameter("gradeIds", gradeIds);}
-if (customerTypeIds != null) {query.setParameter("customerTypeIds", customerTypeIds);}
-if (schoolName != null) {query.setParameter("schoolName", schoolName);}
-if (schoolMobile != null) {query.setParameter("schoolMobile", schoolMobile);}
-if (schoolUsername != null) {query.setParameter("schoolUsername", schoolUsername);}
-if (isAssigned != null) {query.setParameter("isAssigned", isAssigned);}
-if (landingPageId != null) {query.setParameter("landingPageId", landingPageId);}
-if (supervisorId != null) {query.setParameter("supervisorId", supervisorId);}
-if (productMarketingStatusList != null) {query.setParameter("productMarketingStatusList", productMarketingStatusList);}
-if (fromAssignedDatetime != null) {query.setParameter("fromAssignedDatetime", fromAssignedDatetime);}
-if (toAssignedDatetime != null) {query.setParameter("toAssignedDatetime", toAssignedDatetime);}
+    
